@@ -8,7 +8,7 @@ res = requests.get(url, headers = headers)
 soup = BeautifulSoup(res.content, 'html.parser')
 data = soup.select('span.item_title')
 i=1
-f = open("네이버_실시간_순위.txt", "w")
+f = open("네이버 실시간 검색어 순위.txt", "w")
 for item in data:
     data = str(i) + "위 : " + item.get_text() + "\n"
     i = i + 1
