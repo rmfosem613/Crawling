@@ -27,7 +27,7 @@ driver.find_element_by_name("password").send_keys("cpdltm660729")
 driver.find_element_by_tag_name("input").send_keys(Keys.RETURN)
 #로그인 버튼 찾고 클릭
  
-time.sleep(3)
+time.sleep(2)
 driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
 
 time.sleep(3)
@@ -42,11 +42,12 @@ def next_page():
     data_title = soup.select('#container > div.wrap.articles > article > a > h2')
     data_text = soup.select('#container > div.wrap.articles > article > a > p')
     data_url = soup.select('#container > div.wrap.articles > article > a')
+    data_date = soup.select('#container > div.wrap.articles > article > a > time')
 #함수 next_page 생성, 핫 게시판에서 (공감수, 제목, 내용, url) 찾고 저장할 준비
     
-    for title,text,url in zip(data_title,data_text,data_url):
-        excel_sheet.append([title.get_text(),text.get_text(),'https://everytime.kr'+url.get('href')])       
-#num,name,text,url 이라는 폴더에 (공감수, 제목, 내용, url) 각각 넣고 튜플로 저장
+    for title,text,url,date in zip(data_title,data_text,data_url,data_date):
+        excel_sheet.append([title.get_text(),text.get_text(),'https://everytime.kr'+url.get('href'),date.get_text()])       
+#name,text,url 이라는 폴더에 (제목, 내용, url, 작성일) 각각 넣고 튜플로 저장
 
     driver.find_element_by_css_selector('#container > div.wrap.articles > div.pagination > a.next').click()
 
