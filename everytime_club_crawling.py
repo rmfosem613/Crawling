@@ -28,11 +28,11 @@ driver.find_element_by_name("password").send_keys("비밀번호")
 driver.find_element_by_tag_name("input").send_keys(Keys.RETURN)
 #로그인 버튼 찾고 클릭
  
-time.sleep(2)
-driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
-
 #time.sleep(2)
-#driver.find_element_by_xpath('//*[@id="submenu"]/div/div[1]/ul/li/a').click()
+#driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
+
+time.sleep(2)
+driver.find_element_by_xpath('//*[@id="container"]/div[4]/div[8]/div/h3/a').click()
 
 
 time.sleep(3)
@@ -55,12 +55,13 @@ def next_page():
 #name,text,url 이라는 폴더에 (제목, 내용, url, 작성일) 각각 넣고 튜플로 저장
 
     driver.find_element_by_css_selector('#container > div.wrap.articles > div.pagination > a.next').click()
+    #다음 페이지로 이동
 
  
 time.sleep(0.5)
 for page_roof in range(3):
     next_page()
-# next_page를 page_roof라는 폴더에 넣고 30번 반복
+# next_page를 page_roof라는 폴더에 넣고 3번 반복
  
 excel_file.save('everytime crawling.xlsx')
 # everytime crawing 라는 엑셀 파일에 저장 
