@@ -18,17 +18,22 @@ chromedriver ='chromedriver.exe'
 driver = webdriver.Chrome(chromedriver)
 #selenium 라이브러리 기본 작업
 
+
 driver.get('https://everytime.kr/login')
 #크롤링 할 홈페이지 가져오기
-driver.find_element_by_name("userid").send_keys("rmfosem613")
+driver.find_element_by_name("userid").send_keys("아이디")
 #태그의 네임이 userid 인 element 가져오고 "아이디" 입력
-driver.find_element_by_name("password").send_keys("cpdltm660729")
+driver.find_element_by_name("password").send_keys("비밀번호")
 #태그의 네임이 password 인 element 가져오고 "비밀번호" 입력
 driver.find_element_by_tag_name("input").send_keys(Keys.RETURN)
 #로그인 버튼 찾고 클릭
  
+#time.sleep(2)
+#driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
+
 time.sleep(2)
-driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
+driver.find_element_by_xpath('//*[@id="submenu"]/div/div[1]/a').click()
+
 
 time.sleep(3)
 driver.find_element_by_xpath('//*[@id="sheet"]/ul/li[3]/a').click()
