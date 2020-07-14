@@ -28,11 +28,11 @@ driver.find_element_by_name("password").send_keys("비밀번호")
 driver.find_element_by_tag_name("input").send_keys(Keys.RETURN)
 #로그인 버튼 찾고 클릭
  
-#time.sleep(2)
-#driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
-
 time.sleep(2)
-driver.find_element_by_xpath('//*[@id="submenu"]/div/div[1]/a').click()
+driver.get('https://everytime.kr/418861')  #동아리.학회 게시판으로 이동
+
+#time.sleep(2)
+#driver.find_element_by_xpath('//*[@id="submenu"]/div/div[1]/ul/li/a').click()
 
 
 time.sleep(3)
